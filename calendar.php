@@ -51,26 +51,32 @@
 				}
 			}
 
-			//檢查一整行空著
+			//檢查一整行空著 清出空間
 			var check_empty_top = 0;
 			var check_empty_btm = 0;
 			for(i = 0; i < 7; i++)
 			{
 				if(document.getElementById("cal_"+i).innerHTML != "")
 					check_empty_top = 1;
-				var p = i+36;
+				var p = i+35;
 				if(document.getElementById("cal_"+p).innerHTML != "")
 					check_empty_btm = 1;
 			}
 			if(check_empty_top == 0)
 			{
 				for(i = 0; i < 7; i++)
+				{
 					document.getElementById("cal_"+i).style.height = 0;
+					document.getElementById("cal_"+i).style.padding = 0;
+				}
 			}
 			if(check_empty_btm == 0)
 			{
-				for(i = 36; i < 43; i++)
+				for(i = 35; i < 42	; i++)
+				{
 					document.getElementById("cal_"+i).style.height = 0;
+					document.getElementById("cal_"+i).style.padding = 0;
+				}
 			}
 
 		}
