@@ -1,5 +1,15 @@
 <html>
 <head>
+	<style type="text/css">
+		#cal_table td{
+			text-align: center;
+		}
+		.hide{
+			width: 0;
+			height: 0;
+			border: 0px none black;
+		}
+	</style>
 </head>
 <body onload="generate_table()">
 	<div id="cal_table_container">
@@ -14,13 +24,21 @@
 				echo "<tr>";
 				for($i = 0; $i < 42; $i++)
 				{
-					echo "<td id='cal_".$i."'></td>";
+					echo "<td id='cal_".$i."' onclick='show_day_window(this.id)'></td>";
 					if($i % 7 == 6) echo "</tr><tr>";
 				}
 				echo "<tr>";
 			?>
 		</table>
 	</div>
+
+	<div id="day_window_container">
+		<? include("day_window.php") ?>
+	</div>
+
+	<form id="choosed_date_form" method="GET" action="day_window.php" class="hide">
+		<input type="text" name="choosed_date_name" id="choosed_date_id"/>
+	</form>
 
 	<script>
 		var month_head;
@@ -44,9 +62,13 @@
 			for(i = 0; i < 42; i++)
 			{
 				document.getElementById("cal_"+i).innerHTML = ""; //清空所有格子
+				document.getElementById('cal_'+i).style.pointerEvents = 'none';
+				document.getElementById('cal_'+i).style.cursor = "default";
 				if(i  >= month_head && date_tmp < date_MAX)
 				{
 					document.getElementById("cal_"+(month_head+date_tmp)).innerHTML = date_tmp+1;
+					document.getElementById("cal_"+(month_head+date_tmp)).style.pointerEvents = 'auto';
+					document.getElementById("cal_"+(month_head+date_tmp)).style.cursor = "pointer";
 					date_tmp++;
 				}
 			}
@@ -131,6 +153,11 @@
 			month_head = d.getDay();
 
 			new_cal();
+		}
+		function show_day_window(id)
+		{
+			document.getElementById("choosed_date_id").value = id;
+			document.choosed_date_form.submit();
 		}
 	</script>
 
