@@ -32,12 +32,12 @@
 		</table>
 	</div>
 
-	<div id="day_window_container">
-		<? include("day_window.php") ?>
+	<div id="day_window_container" name="day_window_container_name">
+		<? include("day_window.php"); ?>
 	</div>
 
-	<form id="choosed_date_form" method="GET" action="day_window.php" class="hide">
-		<input type="text" name="choosed_date_name" id="choosed_date_id"/>
+	<form name="choosed_date_form" method="GET" class="hide">
+		<input type="text" name="choosed_date_name" id="choosed_date_id" class="hide" />
 	</form>
 
 	<script>
@@ -156,7 +156,9 @@
 		}
 		function show_day_window(id)
 		{
-			document.getElementById("choosed_date_id").value = id;
+			var date_string = Number(id.substring(4))-month_head+1;
+			document.getElementById("choosed_date_id").value = year_tmp+"."+month_tmp+"."+date_string;
+			console.log(year_tmp+"."+month_tmp+"."+date_string);
 			document.choosed_date_form.submit();
 		}
 	</script>
