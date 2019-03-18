@@ -23,7 +23,7 @@
 			<table id="cal_table" border = "1">
 				<tr><td>SUN</td><td>MON</td><td>TUE</td><td>WED</td><td>THU</td><td>FRI</td><td>SAT</td></tr>
 				<?
-				echo "<tr>";
+					echo "<tr>";
 					for($i = 0; $i < 42; $i++)
 					{
 						echo "<td id='cal_".$i."' onclick='show_day_window(this.id)'></td>";
