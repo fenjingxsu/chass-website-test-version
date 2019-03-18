@@ -86,19 +86,17 @@
 
 ?>
 
-<form name = "rent_form" id="rent_form_id" method="POST" action="rent_add.php" class="hide">
-	<input name="name_name" id="name_id" class="hide"/>
-	<input name="phone_name" id="phone_id" class="hide"/>
-	<input name="purpose_name" id="purpose_id" class="hide"/>
-	<input name="usefor_name" id="usefor_id" class="hide"/>
-	<input name="date_name" id="date_id" class="hide"/>
-	<input name="time_name" id="time_id" class="hide"/>
+<form name = "move_form" id="move_form_id" method="POST" action="move_orders.php" class="hide">
+	<input name="move_date_name" id="move_date_id" class="hide"/>
+	<input name="move_id_name" id="move_id_id" class="hide"/>
 </form>
 
 <script type="text/javascript">
 	function move(id)
 	{
-		
+		document.getElementById("move_date_id").value = '<? echo $_GET["choosed_date_name"] ?>';
+		document.getElementById("move_id_id").value = id;
+		document.move_form.submit();
 	}
 </script>
 
