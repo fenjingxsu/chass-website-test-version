@@ -9,14 +9,22 @@
 			height: 0;
 			border: 0px none black;
 		}
+		.change_month_arrow{
+			cursor: pointer;
+		}
+		#day_window_iframe_id{
+			width: 100%;
+			height: 50%;
+			border: 0px none black;
+		}
 	</style>
 </head>
-<body onload="generate_table()">
+<body>
 	<div id="cal_table_container">
 		<div id="month_container">
-			<span id="pre_month_arrow" onclick="pre_month()"><</span>
+			<span id="pre_month_arrow" onclick="pre_month()" class="change_month_arrow"><</span>
 			<span id="month_text"></span>
-			<span id="next_month_arrow" onclick="next_month()">></span>
+			<span id="next_month_arrow" onclick="next_month()" class="change_month_arrow">></span>
 		</div>
 		<table id="cal_table" border = "1">
 			<tr><td>SUN</td><td>MON</td><td>TUE</td><td>WED</td><td>THU</td><td>FRI</td><td>SAT</td></tr>
@@ -33,10 +41,10 @@
 	</div>
 
 	<div id="day_window_container" name="day_window_container_name">
-		<? include("day_window.php"); ?>
+		<iframe src="day_window.php" name="day_window_iframe" id="day_window_iframe_id"></iframe>
 	</div>
 
-	<form name="choosed_date_form" method="GET" class="hide">
+	<form name="choosed_date_form" method="GET" class="hide" action="day_window.php" target="day_window_iframe">
 		<input type="text" name="choosed_date_name" id="choosed_date_id" class="hide" />
 	</form>
 
@@ -44,6 +52,7 @@
 		var month_head;
 		var month_tmp; //js month是0-11所以帶入要-1
 		var year_tmp;
+
 		function new_cal()
 		{
 			var date_MAX;
@@ -114,6 +123,9 @@
 
 			new_cal();
 		}
+		
+		generate_table();
+
 		function pre_month()
 		{
 			var i;

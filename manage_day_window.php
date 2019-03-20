@@ -1,10 +1,11 @@
 <html>
 <head>
 	<style type="text/css">
-		/*#man_date_table tbody{
-			display: flex;
-			flex-direction: column;
-		}*/
+		.hide{
+			width: 0;
+			height: 0;
+			border: 0px none black;
+		}
 	</style>
 </head>
 <body>
@@ -86,10 +87,12 @@
 
 ?>
 
-<form name = "move_form" id="move_form_id" method="POST" action="move_orders.php" class="hide">
+<form name = "move_form" id="move_form_id" method="POST" action="move_orders.php" class="hide" target="hide_frame">
 	<input name="move_date_name" id="move_date_id" class="hide"/>
 	<input name="move_id_name" id="move_id_id" class="hide"/>
 </form>
+
+<iframe name="hide_frame" class="hide"></iframe>
 
 <script type="text/javascript">
 	function move(id)
@@ -97,6 +100,7 @@
 		document.getElementById("move_date_id").value = '<? echo $_GET["choosed_date_name"] ?>';
 		document.getElementById("move_id_id").value = id;
 		document.move_form.submit();
+		setTimeout(function(){window.location.reload()}, 100);
 	}
 </script>
 

@@ -80,9 +80,10 @@
 		<div id="pic_bar">
 		</div>
 		<div id="small_title">
-			&nbsp最新消息
+			&nbsp場地借用
 		</div>
 		<div id="content">
+			<? include("calendar.php"); ?>
 		</div>
 		<div id="bottom_bar">
 		</div>

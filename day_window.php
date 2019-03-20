@@ -1,4 +1,13 @@
 <html>
+<head>
+	<style type="text/css">
+		.hide{
+			width: 0;
+			height: 0;
+			border: 0px none black;
+		}
+	</style>
+</head>
 <body>
 
 
@@ -169,7 +178,7 @@
 	}
 ?>
 
-	<form name = "rent_form" id="rent_form_id" method="POST" action="rent_add.php" class="hide">
+	<form name = "rent_form" id="rent_form_id" method="POST" action="rent_add.php" class="hide" target="hide_frame">
 		<input name="name_name" id="name_id" class="hide"/>
 		<input name="phone_name" id="phone_id" class="hide"/>
 		<input name="purpose_name" id="purpose_id" class="hide"/>
@@ -177,6 +186,8 @@
 		<input name="date_name" id="date_id" class="hide"/>
 		<input name="time_name" id="time_id" class="hide"/>
 	</form>
+
+	<iframe name="hide_frame" class="hide"></iframe>
 
 <script>
 	function neg(id)
@@ -214,7 +225,31 @@
 		document.getElementById("usefor_id").value = document.getElementById("usefor_id_"+id_tmp).value;
 
 		document.rent_form.submit();
+		setTimeout(function(){window.location.reload()}, 10);
 	}
+
+<?
+	$dbname="venue";
+	$link=mysqli_connect("localhost","root","nckuchass123", $dbname) or die("無法開啟資料庫連結");
+	for($i = 0; $i < 8; $i++)
+	{
+		$count = 0;
+		$time_start = $i + 8;
+		$time_end = $i + 9;
+		$time_string = strval($time_start).":00~".strval($time_end).":00";
+		$check_amount_sql = "SELECT MAX(orders) FROM rent WHERE date = '".$_GET["choosed_date_name"]."' and time = '".$time_string."'";
+		if($tmp1 = mysqli_query($link, $check_amount_sql))
+		{
+			$tmp2 = mysqli_fetch_assoc($tmp1);
+			//print($tmp2["MAX(orders)"]);
+		}
+		if(intval($tmp2["MAX(orders)"]) >= 4)
+		{
+			echo "document.getElementById('btn_".($i+1)."_id').disabled = true;";
+		}
+	}
+?>
+
 </script>
 
 </body>

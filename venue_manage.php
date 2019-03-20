@@ -9,6 +9,14 @@
 			height: 0;
 			border: 0px none black;
 		}
+		.change_month_arrow{
+			cursor: pointer;
+		}
+		#day_window_iframe_id{
+			width: 100%;
+			height: 50%;
+			border: 0px none black;
+		}
 	</style>
 </head>
 <body onload="generate_table()">
@@ -35,10 +43,10 @@
 		</div>
 
 		<div id="day_window_container" name="day_window_container_name">
-			<? include("manage_day_window.php"); ?>
+			<iframe src="day_window.php" name="day_window_iframe" id="day_window_iframe_id"></iframe>
 		</div>
 
-		<form name="choosed_date_form" method="GET" class="hide">
+		<form name="choosed_date_form" method="GET" class="hide" action="manage_day_window.php" target="day_window_iframe">
 			<input type="text" name="choosed_date_name" id="choosed_date_id" class="hide" />
 		</form>
 
