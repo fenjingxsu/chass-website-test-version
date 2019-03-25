@@ -3,6 +3,10 @@
 	<style type="text/css">
 		#cal_table td{
 			text-align: center;
+			width: 14%;
+			height: 14%;
+			border: solid 0.5px #969696;
+			font-size: 1rem;
 		}
 		.hide{
 			width: 0;
@@ -16,6 +20,29 @@
 			width: 100%;
 			height: 50%;
 			border: 0px none black;
+		}
+		#cal_table_container{
+			width: 80%;
+			margin: 0 auto;
+			height: 30rem;
+		}
+		#month_container{
+			height: 10%;
+		}
+		#cal_table{
+			width: 100%;
+			height: 90%;
+			//border-spacing: 0;
+			border: none 0px black;
+			border-collapse: collapse;
+		}
+		#cal_table tbody{
+			border: none 0px black;	
+		}
+		.today{
+			border-radius: 50%;
+			background-color: #778eaa;
+			padding: 0.5rem;
 		}
 	</style>
 </head>
@@ -33,9 +60,9 @@
 				for($i = 0; $i < 42; $i++)
 				{
 					echo "<td id='cal_".$i."' onclick='show_day_window(this.id)'></td>";
-					if($i % 7 == 6) echo "</tr><tr>";
+					if($i % 7 == 6) echo "</tr>";
 				}
-				echo "<tr>";
+				//echo "<tr>";
 			?>
 		</table>
 	</div>
@@ -97,18 +124,37 @@
 			{
 				for(i = 0; i < 7; i++)
 				{
-					document.getElementById("cal_"+i).style.height = 0;
-					document.getElementById("cal_"+i).style.padding = 0;
+					document.getElementById("cal_"+i).style.border="none";
 				}
 			}
-			if(check_empty_btm == 0)
+			else if(check_empty_btm == 0)
 			{
 				for(i = 35; i < 42	; i++)
 				{
-					document.getElementById("cal_"+i).style.height = 0;
-					document.getElementById("cal_"+i).style.padding = 0;
+					document.getElementById("cal_"+i).style.border="none";
 				}
 			}
+			else
+			{
+				for(i = 0; i < 42	; i++)
+				{
+					document.getElementById("cal_"+i).style.border="solid 0.5px #969696";
+				}
+			}
+
+			//檢查有沒有包含今天
+			var today = new Date();
+			var today_month = today.getMonth()+1;
+			var today_date = today.getDate();
+			var today_year = today.getFullYear();
+			for(i = 0; i < 42; i++)
+			{
+				if(document.getElementById("cal_"+i).innerHTML == today_date && month_tmp == today_month && today_year == year_tmp)
+				{
+					document.getElementById("cal_"+i).innerHTML = "<span class='today'>"+i+"</span>";
+				}
+			}
+
 
 		}
 		function generate_table()
