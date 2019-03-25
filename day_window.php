@@ -6,6 +6,12 @@
 			height: 0;
 			border: 0px none black;
 		}
+		#day_table{
+			border: solid 0.5px black;
+		}
+		#day_table td{
+			border: solid 0.5px black;	
+		}
 	</style>
 </head>
 <body>
@@ -14,7 +20,7 @@
 <?
 	if(isset($_GET["choosed_date_name"]))
 	{
-		echo "<table>";
+		echo "<table id='day_table'>";
 		echo "<tr><td>時間</td><td>姓名</td><td>連絡電話</td><td>活動名稱</td><td>用途</td><td></td></tr>";
 		echo "<tr id='tr_1'>
 				<td>8:00~9:00</td>
@@ -247,30 +253,35 @@
 	{
 		document.getElementById("date_id").value = '<? echo $_GET["choosed_date_name"]; ?>';
 		id_tmp = id.substring(4, 5);
-		if(id_tmp == 1)
-			document.getElementById("time_id").value = "8:00~9:00";
-		else if(id_tmp == 2)
-			document.getElementById("time_id").value = "9:00~10:00";
-		else if(id_tmp == 3)
-			document.getElementById("time_id").value = "10:00~11:00";
-		else if(id_tmp == 4)
-			document.getElementById("time_id").value = "11:00~12:00";
-		else if(id_tmp == 5)
-			document.getElementById("time_id").value = "12:00~13:00";
-		else if(id_tmp == 6)
-			document.getElementById("time_id").value = "13:00~14:00";
-		else if(id_tmp == 7)
-			document.getElementById("time_id").value = "14:00~15:00";
-		else if(id_tmp == 8)
-			document.getElementById("time_id").value = "15:00~16:00";
+		if(!document.getElementById("name_id_"+id_tmp).value || !document.getElementById("phone_id_"+id_tmp).value || !document.getElementById("purpose_id_"+id_tmp).value)
+			alert("請全部填完!");
+		else
+		{
+			if(id_tmp == 1)
+				document.getElementById("time_id").value = "8:00~9:00";
+			else if(id_tmp == 2)
+				document.getElementById("time_id").value = "9:00~10:00";
+			else if(id_tmp == 3)
+				document.getElementById("time_id").value = "10:00~11:00";
+			else if(id_tmp == 4)
+				document.getElementById("time_id").value = "11:00~12:00";
+			else if(id_tmp == 5)
+				document.getElementById("time_id").value = "12:00~13:00";
+			else if(id_tmp == 6)
+				document.getElementById("time_id").value = "13:00~14:00";
+			else if(id_tmp == 7)
+				document.getElementById("time_id").value = "14:00~15:00";
+			else if(id_tmp == 8)
+				document.getElementById("time_id").value = "15:00~16:00";
 
-		document.getElementById("name_id").value = document.getElementById("name_id_"+id_tmp).value;
-		document.getElementById("phone_id").value = document.getElementById("phone_id_"+id_tmp).value;
-		document.getElementById("purpose_id").value = document.getElementById("purpose_id_"+id_tmp).value;
-		document.getElementById("usefor_id").value = document.getElementById("usefor_id_"+id_tmp).value;
+			document.getElementById("name_id").value = document.getElementById("name_id_"+id_tmp).value;
+			document.getElementById("phone_id").value = document.getElementById("phone_id_"+id_tmp).value;
+			document.getElementById("purpose_id").value = document.getElementById("purpose_id_"+id_tmp).value;
+			document.getElementById("usefor_id").value = document.getElementById("usefor_id_"+id_tmp).value;
 
-		document.rent_form.submit();
-		setTimeout(function(){window.location.reload()}, 10);
+			document.rent_form.submit();
+			setTimeout(function(){window.location.reload()}, 10);
+		}
 	}
 
 	
