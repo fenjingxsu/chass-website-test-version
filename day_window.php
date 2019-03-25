@@ -16,7 +16,7 @@
 	{
 		echo "<table>";
 		echo "<tr><td>時間</td><td>姓名</td><td>連絡電話</td><td>活動名稱</td><td>用途</td><td></td></tr>";
-		echo "<tr>
+		echo "<tr id='tr_1'>
 				<td>8:00~9:00</td>
 				<td id='name_1'><input type='text' name='name_name' id='name_id_1'/></td>
 				<td id='phone_1'><input name='phone_name' id='phone_id_1'/></td>
@@ -24,7 +24,7 @@
 				<td id='usefor_1'><select name='usefor_name' id='usefor_id_1'><option value='教學'>教學</option><option value='其他'>其他</option></select></td>
 				<td id='btn_1'><button id='btn_1_id' onclick='rent_submit(this.id)'>申請</button></td>
 			</tr>";
-		echo "<tr>
+		echo "<tr id='tr_2'>
 				<td>9:00~10:00</td>
 				<td id='name_2'><input name='name_name' id='name_id_2'/></td>
 				<td id='phone_2'><input name='phone_name' id='phone_id_2'/></td>
@@ -32,7 +32,7 @@
 				<td id='usefor_2'><select name='usefor_name' id='usefor_id_2'><option value='教學'>教學</option><option value='其他'>其他</option></select></td>
 				<td id='btn_2'><button id='btn_2_id' onclick='rent_submit(this.id)'>申請</button></td>
 			</tr>";
-		echo "<tr>
+		echo "<tr id='tr_3'>
 				<td>10:00~11:00</td>
 				<td id='name_3'><input name='name_name' id='name_id_3'></td>
 				<td id='phone_3'><input name='phone_name' id='phone_id_3'></td>
@@ -40,7 +40,7 @@
 				<td id='usefor_3'><select name='usefor_name' id='usefor_id_3'><option value='教學'>教學</option><option value='其他'>其他</option></select></td>
 				<td id='btn_3'><button id='btn_3_id' onclick='rent_submit(this.id)'>申請</button></td>
 			</tr>";
-		echo "<tr>
+		echo "<tr id='tr_4'>
 				<td>11:00~12:00</td>
 				<td id='name_4'><input name='name_name' id='name_id_4'></td>
 				<td id='phone_4'><input name='phone_name' id='phone_id_4'></td>
@@ -48,7 +48,7 @@
 				<td id='usefor_4'><select name='usefor_name' id='usefor_id_4'><option value='教學'>教學</option><option value='其他'>其他</option></select></td>
 				<td id='btn_4'><button id='btn_4_id' onclick='rent_submit(this.id)'>申請</button></td>
 			</tr>";
-		echo "<tr>
+		echo "<tr id='tr_5'>
 				<td>12:00~13:00</td>
 				<td id='name_5'><input name='name_name' id='name_id_5'></td>
 				<td id='phone_5'><input name='phone_name' id='phone_id_5'></td>
@@ -56,7 +56,7 @@
 				<td id='usefor_5'><select name='usefor_name' id='usefor_id_5'><option value='教學'>教學</option><option value='其他'>其他</option></select></td>
 				<td id='btn_5'><button id='btn_5_id' onclick='rent_submit(this.id)'>申請</button></td>
 			</tr>";
-		echo "<tr>
+		echo "<tr id='tr_6'>
 				<td>13:00~14:00</td>
 				<td id='name_6'><input name='name_name' id='name_id_6'></td>
 				<td id='phone_6'><input name='phone_name' id='phone_id_6'></td>
@@ -64,7 +64,7 @@
 				<td id='usefor_6'><select name='usefor_name' id='usefor_id_6'><option value='教學'>教學</option><option value='其他'>其他</option></select></td>
 				<td id='btn_6'><button id='btn_6_id' onclick='rent_submit(this.id)'>申請</button></td>
 			</tr>";
-		echo "<tr>
+		echo "<tr  id='tr_7'>
 				<td>14:00~15:00</td>
 				<td id='name_7'><input name='name_name' id='name_id_7'></td>
 				<td id='phone_7'><input name='phone_name' id='phone_id_7'></td>
@@ -72,7 +72,7 @@
 				<td id='usefor_7'><select name='usefor_name' id='usefor_id_7'><option value='教學'>教學</option><option value='其他'>其他</option></select></td>
 				<td id='btn_7'><button id='btn_7_id' onclick='rent_submit(this.id)'>申請</button></td>
 			</tr>";
-		echo "<tr>
+		echo "<tr  id='tr_8'>
 				<td>15:00~16:00</td>
 				<td id='name_8'><input name='name_name' id='name_id_8'></td>
 				<td id='phone_8'><input name='phone_name' id='phone_id_8'></td>
@@ -92,6 +92,7 @@
 		{
 			while($result2 = mysqli_fetch_assoc($result))
 			{
+				$merge = 0;
 				if($result2["time"] == "8:00~9:00")
 				{
 					echo "<script>
@@ -172,7 +173,49 @@
 							document.getElementById('btn_8').innerHTML = '<button id=\'btn_8_id\' onclick=\'neg(8)\'>申請</button>';
 						</script>";
 				}
-			}
+			}/*先擺檢察長時間的function*/?>
+
+			<script type="text/javascript">
+				function re_merge(merge, i)
+				{
+					var j = i-merge;
+					if(document.getElementById("name_"+i).innerHTML == document.getElementById("name_"+j).innerHTML && document.getElementById("phone_"+i).innerHTML == document.getElementById("phone_"+j).innerHTML && document.getElementById("purpose_"+i).innerHTML == document.getElementById("purpose_"+j).innerHTML && document.getElementById("usefor_"+i).innerHTML == document.getElementById("usefor_"+j).innerHTML)
+					{
+						merge++;
+						document.getElementById("name_"+j).rowSpan = merge;
+						document.getElementById("phone_"+j).rowSpan = merge;
+						document.getElementById("purpose_"+j).rowSpan = merge;
+						document.getElementById("usefor_"+j).rowSpan = merge;
+						document.getElementById("btn_"+j).rowSpan = merge;
+						document.getElementById("tr_"+i).innerHTML = "<td>"+(i+7)+":00~"+(i+8)+":00</td>";
+						if(i < 8)
+						{
+							re_merge(merge, i+1);
+						}
+						else
+							return;
+					}
+					else
+					{
+						merge = 1;
+						if(i < 8)
+						{
+							re_merge(merge, i+1);
+						}
+						else
+							return;
+					}
+				}
+
+				function check_merge()
+				{
+					var merge = 1;
+					var i = 2;
+					re_merge(merge, i);
+				}
+			</script>
+			<?
+			echo "<script>check_merge();</script>";
 		}
 
 	}
@@ -192,11 +235,13 @@
 <script>
 	function neg(id)
 	{
-		document.getElementById("name_"+id).innerHTML = "<input name='name_name' id='name_id_"+id+"'/>";
-		document.getElementById("phone_"+id).innerHTML = "<input name='phone_name' id='phone_id_"+id+"'/>";
-		document.getElementById("purpose_"+id).innerHTML = "<input name='purpose_name' id='purpose_id_"+id+"'/>";
-		document.getElementById("usefor_"+id).innerHTML = "<select name='usefor_name' id='usefor_id_"+id+"'><option value='教學'>教學</option><option value='其他'>其他</option></select></td>";
-		document.getElementById("btn_"+id).innerHTML = "<button id='btn_"+id+"_id' onclick='rent_submit(this.id)'>申請</button>";
+		var tmp = document.getElementById("btn_"+id).rowSpan;
+		for(i = 0; i < tmp; i++)
+		{
+			document.getElementById("tr_"+(id+i)).innerHTML="<td>"+(id+7+i)+":00~"+(id+8+i)+":00</td><td id='name_"+(id+i)+"'><input name='name_name' id='name_id_"+(id+i)+"'/></td><td id='phone_"+(id+i)+"'><input name='phone_name' id='phone_id_"+(id+i)+"'/></td><td id='purpose_"+(id+i)+"'><input name='purpose_name' id='purpose_id_"+(id+i)+"'/></td><td id='usefor_"+(id+i)+"'><select name='usefor_name' id='usefor_id_"+(id+i)+"'><option value='教學'>教學</option><option value='其他'>其他</option></select></td><td id='btn_"+(id+i)+"'></td>";
+			document.getElementById("btn_"+(id+i)).innerHTML = "<button id='btn_"+(id+i)+"_id' onclick='rent_submit(this.id)'>申請</button>";
+		}
+		
 	}
 	function rent_submit(id)
 	{
@@ -228,7 +273,10 @@
 		setTimeout(function(){window.location.reload()}, 10);
 	}
 
-<?
+	
+	
+
+<?	//檢查已登記數量
 	$dbname="venue";
 	$link=mysqli_connect("localhost","root","nckuchass123", $dbname) or die("無法開啟資料庫連結");
 	for($i = 0; $i < 8; $i++)
@@ -241,7 +289,6 @@
 		if($tmp1 = mysqli_query($link, $check_amount_sql))
 		{
 			$tmp2 = mysqli_fetch_assoc($tmp1);
-			//print($tmp2["MAX(orders)"]);
 		}
 		if(intval($tmp2["MAX(orders)"]) >= 4)
 		{
