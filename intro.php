@@ -100,7 +100,7 @@
 			<div id="outer_frame">
 				<div id="content_title">中心簡介</div>
 				<div id="white_frame">
-					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp本校為提升人文社會科學領域之研究水準及學術能量，促進人文宇科技均衡發展，特依本校組織規程第八條，設置「人文社會科學中心」。
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp本校為提升人文社會科學領域之研究水準及學術能量，促進人文與科技均衡發展，特依本校組織規程第八條，設置「人文社會科學中心」。
 					<br><br>
 					本中心使命如下:
 					<br><br>
@@ -113,8 +113,9 @@
 		</div>
 		
 	</div>
-<div id="bottom_bar">
-		</div>
+	<div id="bottom_bar">
+	</div>
+	<script type="text/javascript" src="chass.js"></script>
 	<script type="text/javascript">
 		function load_pic_bar()
 		{

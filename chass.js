@@ -1,0 +1,2 @@
+document.getElementById("main_content").style.height = document.getElementById("main_content").offsetHeight+100;
+document.getElementById("bottom_bar").style.top = document.getElementById("main_content").offsetHeight;

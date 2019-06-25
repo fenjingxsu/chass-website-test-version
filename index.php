@@ -66,6 +66,7 @@
 	</div>
 	<div id="bottom_bar">
 	</div>
+	<script type="text/javascript" src="chass.js"></script>
 	<script type="text/javascript">
 		function load_pic_bar()
 		{
