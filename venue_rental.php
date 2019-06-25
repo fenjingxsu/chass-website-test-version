@@ -84,6 +84,7 @@
 		</div>
 		<div id="content">
 			<? include("calendar.php"); ?>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		</div>
 		<div id="bottom_bar">
 		</div>

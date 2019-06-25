@@ -44,6 +44,24 @@
 			background-color: #778eaa;
 			padding: 0.5rem;
 		}
+		#day_window_bg{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			visibility: hidden;
+			z-index: -999;
+		}
+		#day_window_container{
+			visibility: hidden;
+			z-index: -998;
+			background-color: white;
+			width: 30rem;
+			height: 50rem;
+			position: fixed;
+		}
 	</style>
 </head>
 <body>
@@ -70,6 +88,8 @@
 	<div id="day_window_container" name="day_window_container_name">
 		<iframe src="day_window.php" name="day_window_iframe" id="day_window_iframe_id"></iframe>
 	</div>
+
+	<div id="day_window_bg" onclick="hide_day_window()"></div>
 
 	<form name="choosed_date_form" method="GET" class="hide" action="day_window.php" target="day_window_iframe">
 		<input type="text" name="choosed_date_name" id="choosed_date_id" class="hide" />
@@ -214,10 +234,24 @@
 		}
 		function show_day_window(id)
 		{
+			document.getElementById("day_window_container").style.visibility = "visible";
+			document.getElementById("day_window_container").style.zIndex = "999";
+			document.getElementById("day_window_bg").style.visibility = "visible";
+			document.getElementById("day_window_bg").style.zIndex = "998";
+			var pos_tmp = document.getElementById(id).getBoundingClientRect();
+			document.getElementById("day_window_container").style.left = pos_tmp.right;
+			document.getElementById("day_window_container").style.top = pos_tmp.top;
 			var date_string = Number(id.substring(4))-month_head+1;
 			document.getElementById("choosed_date_id").value = year_tmp+"."+month_tmp+"."+date_string;
 			console.log(year_tmp+"."+month_tmp+"."+date_string);
 			document.choosed_date_form.submit();
+		}
+		function hide_day_window()
+		{
+			document.getElementById("day_window_container").style.visibility = "hidden";
+			document.getElementById("day_window_container").style.zIndex = "-999";
+			document.getElementById("day_window_bg").style.visibility = "hidden";
+			document.getElementById("day_window_bg").style.zIndex = "-998";
 		}
 	</script>
 
