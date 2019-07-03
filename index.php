@@ -1,5 +1,7 @@
 <html>
 <head>
+	<title>成功大學人文社會科學中心</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<style type="text/css">
 		@import url("chass.css");
 	</style>
@@ -66,14 +68,15 @@
 	</div>
 	<div id="bottom_bar">
 	</div>
-	<script type="text/javascript" src="chass.js"></script>
 	<script type="text/javascript">
 		function load_pic_bar()
 		{
 			var pic_num = Math.floor((Math.random() * 10));
 			document.getElementById("pic_bar").style.backgroundImage = "url('pic_bar/"+pic_num+".png')";
 		}
+		document.getElementById("main_content").style.height = document.getElementById("main_content").offsetHeight + document.getElementById("content").offsetHeight;
 	</script>
+	<script type="text/javascript" src="chass.js"></script>
 
 </body>
 </html>

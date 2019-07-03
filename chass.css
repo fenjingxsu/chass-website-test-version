@@ -11,11 +11,15 @@
 		margin: 0;
 		font-family: 'cwTeXFangSong', serif;
 	}
+	a{
+		text-decoration: none;
+	}
 	#main_content{
-		width: 44%;
+		width: 50rem;
 		background-color: white;
-		position: absolute;
-		left: 28%;
+		margin: auto;
+		/*position: relative;
+		/*left: 28%;*/
 	}
 	#top_bar{
 		text-align: right;
@@ -53,6 +57,7 @@
 		height: 15rem;
 		background-repeat: no-repeat;
 		background-position: center;
+		width: 100%;
 	}
 	#small_title{
 		height: 3.5rem;
@@ -72,8 +77,6 @@
 		background-image: url(img/bottom.png);
 		height: 4.5rem;
 		background-size: 100%;
-		width: 44%;
+		width: 50rem;
 		margin: auto;
-		position: absolute;
-		left: 28%;
 	}

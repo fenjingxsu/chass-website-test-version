@@ -9,7 +9,7 @@
 			//background: linear-gradient(160deg, #c1a86c 30%, rgba(0,0,0,0) 30%), linear-gradient(155deg, #876b29 35%, rgba(0,0,0,0) 35%), linear-gradient(150deg, #634c15 40%, rgba(0,0,0,0) 40%), linear-gradient(15deg, #7092b5 20%, rgba(0,0,0,0) 20%), linear-gradient(19deg, #4b6887 25%, rgba(0,0,0,0) 25%), linear-gradient(23deg, #304963 30%, rgba(0,0,0,0) 30%), linear-gradient(-80deg, #c4906a 20%, rgba(0,0,0,0) 20%), linear-gradient(-96deg, #7d3a11 25%, rgba(0,0,0,0) 25%);
 			background: linear-gradient(100deg, #7092b5 70%, #4b6887 70%);
 			width: 35rem;
-			height: 40rem;
+			height: 50rem;
 			float: right;
 			margin-top: 1rem;
 			margin-right: 2rem;
@@ -25,7 +25,7 @@
 		#white_frame{
 			background-color: rgba(255,255,255,0.7);
 			width: 80%;
-			height: 29rem;
+			height: 39rem;
 			margin: auto;
 			position: relative;
 			top: 3rem;
@@ -86,7 +86,7 @@
 		<div id="pic_bar">
 		</div>
 		<div id="small_title">
-			&nbsp中心簡介
+			&nbsp組織架構
 		</div>
 		<div id="small_title_underline"></div>
 		<div id="content">
@@ -111,14 +111,11 @@
 			<div id="outer_frame">
 				<div id="content_title">中心簡介</div>
 				<div id="white_frame">
-					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp本校為提升人文社會科學領域之研究水準及學術能量，促進人文與科技均衡發展，特依本校組織規程第八條，設置「人文社會科學中心」。
-					<br><br><br>
-					本中心使命如下:
-					<br><br><br>
-					<span style="font-weight: bold; font-size: 1.5rem; color: #436884">1</span> 整合國內外及本校相關院所之研究資源與能量。<br><br>
-					<span style="font-weight: bold; font-size: 1.5rem; color: #938e54">2</span> 強化具有區域特性之研究主題，發展台灣主體性與全球化之學術研究。<br><br>
-					<span style="font-weight: bold; font-size: 1.5rem; color: #436884">3</span> 建立活躍的研究社群，培育人文社會青年學者。<br><br>
-					<span style="font-weight: bold; font-size: 1.5rem; color: #938e54">4</span> 其他與人文社會研究相關工作之推動。
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp關於本中心組織人力架構: 依本校「人文社會科學中心設置辦法」(附件一)置中心主任一人，綜理各項業務，由林從一教授擔任，另為有效執行及推動任務，下設行政企劃組，研究教育組和社會實踐組，各組置組長一人，以督導各項業務之執行，由中心主任聘請助理教授以上教學人員或同級之研究人員兼任之。<br/><br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp目前教育所董旭英教授擔任行政企劃組組長，建築系陳世明副教授擔任社會實踐組組長，歷史系謝仕淵富教授擔任研究教育組組長。<br/><br/>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp在行政人力方面，目前配置了1位碩士級專任助理，4位工讀生，以協助本中心行政業務。此外，本中心有1位助理研究員，也延攬了5位博士後研究員。<br><br>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp以下為本中心組織架構圖:
+					<br><br>
+					<img style="width: 100%" src="img/intro/framework_graph.jpg" />
 				</div>
 			</div>
 		</div>
