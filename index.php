@@ -4,6 +4,22 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<style type="text/css">
 		@import url("chass.css");
+		#news_table{
+			width: 80%;
+			margin: auto;
+		}
+		#news_table td:nth-of-type(even){
+			width: 30%;
+		}
+		#news_table td{
+			padding: 1rem;
+			//border-bottom: 0.5rem solid #e6e6e6;
+			background-image: linear-gradient(white 90%, #e6e6e6 10%);
+		}
+		#news_table tr:nth-child(1){
+			background-color: #e6e6e6 !important;
+			//background-image: linear-gradient(white, #e6e6e6);
+		}
 	</style>
 </head>
 <body onload="load_pic_bar()">

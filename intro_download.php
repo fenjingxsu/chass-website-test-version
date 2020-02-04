@@ -35,7 +35,9 @@
 			color: black;
 			font-weight: bold;
 		}
+		.inner_frame a{
 
+		}
 		#intro_sidebar{
 			width: 20 %;
 			float: left;
@@ -71,7 +73,7 @@
 		<div id="pic_bar">
 		</div>
 		<div id="small_title">
-			&nbsp交通資訊
+			&nbsp表格下載
 		</div>
 		<div id="small_title_underline"></div>
 		<div id="content">
@@ -93,35 +95,21 @@
 				}
 				?>
 			</div>
-			<div class="outer_frame" style="height: 15.5rem">
-				<div class="content_title">自行開車—南下</div>
-				<div class="inner_frame" style="height: 7rem">
-					沿國道一號南下 → 下永康交流道右轉 → 沿中正北路、中正南路(南向)往臺南市區直行 → 中華路左轉 → 沿中華東路前進→ 光復校區→雲平大樓東棟北側五樓。 【自國道三號南下者，轉國道8號（西向），可接國道一號（南向）】
-				</div>
-			</div>
-			<div class="outer_frame" style="height: 14.5rem">
-				<div class="content_title">自行開車—北上</div>
-				<div class="inner_frame" style="height: 6rem">
-					沿國道一號北上 → 下仁德交流道左轉 → 沿東門路(西向)往臺南市區直走 → 遇林森路或長榮路右轉(北向)→ 光復校區→雲平大樓東棟北側五樓。 【自國道三號北上者，轉86號快速道路（西向），可接國道一號（北向）】
+			<div class="outer_frame" style="height: 11.5rem">
+				<div class="content_title">公開授權同意書</div>
+				<div class="inner_frame" style="height: 3rem">
+					<a href="doc/人社心中公開授權同意書-新.pdf">人社心中公開授權同意書-中文版</a>
+					<br>
+					<a href="doc/人社心中公開授權同意書-新-eng.pdf">人社心中公開授權同意書-英文版</a>
 				</div>
 			</div>
 			<hr style="display: block;float: right; width: 35rem; margin-right: 2rem;margin-top: 1rem">
-			<div class="outer_frame" style="height: 10.5rem">
-				<div class="content_title">搭乘火車</div>
+			<div class="outer_frame" style="height: 11.5rem">
+				<div class="content_title">活動公告相關</div>
 				<div class="inner_frame" style="height: 2rem">
-					於臺南站下車後，自後站出口（大學路），大學路左側即為本校光復校區。
+					<a href="img/logo.png">人文社會科學中心LOGO</a>
 				</div>
 			</div>
-			<div class="outer_frame" style="height: 12.5rem">
-				<div class="content_title">搭乘高鐵</div>
-				<div class="inner_frame" style="height: 4rem">
-					至臺南站，再搭乘接駁巴士(往臺南公園)，搭乘約 40 分鐘，於成大光復校區站(小東路)下車, 下車的地點即為光復校區
-				</div>
-			</div>
-			<hr style="display: block;float: right; width: 35rem; margin-right: 2rem;margin-top: 1rem">
-			<img src="img/intro/map01.png" style="float: right; width: 35rem; margin-top: 1rem; margin-right: 2rem;" />
-			<hr style="display: block;float: right; width: 35rem; margin-right: 2rem;margin-top: 1rem">
-			<img src="img/intro/map02.jpg" style="float: right; width: 35rem; margin-top: 1rem; margin-right: 2rem;" />
 			
 		</div>
 		
@@ -134,7 +122,7 @@
 			var pic_num = Math.floor((Math.random() * 10));
 			document.getElementById("pic_bar").style.backgroundImage = "url('pic_bar/"+pic_num+".png')";
 		}
-		document.getElementById("main_content").style.height = document.getElementById("main_content").offsetHeight*5.5;
+		document.getElementById("main_content").style.height = document.getElementById("main_content").offsetHeight*2;
 	</script>
 	<script type="text/javascript" src="chass.js"></script>
 

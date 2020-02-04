@@ -1,0 +1,183 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+		td{
+			width: 60px;
+			height: 60px;
+		}
+		img{
+			width: 60px;
+			height: 60px;
+			padding: 2px;
+		}
+		
+		#ori_img{
+			float: left;
+		}
+		#result{
+			float: left;
+			border-spacing: 4px;
+		}
+		#small{
+			float: left;
+		}
+		#dig_fill{
+			border-spacing: 4px;
+		}
+	</style>
+</head>
+<body onload="">
+
+	<div id="ori_img"></div>
+
+	<table id="result">
+		<tr id='tr1'></tr>
+		<tr id='tr2'></tr>
+		<tr id='tr3'></tr>
+		<tr id='tr4'></tr>
+		<tr id='tr5'></tr>
+		<tr id='tr6'></tr>
+		<tr id='tr7'></tr>
+		<tr id='tr8'></tr>
+		<tr id='tr9'></tr>
+		<tr id='tr10'></tr>
+	</table>
+
+	<div id="small">
+		<div id="color_grid"></div>
+		<button onclick="gen()">確定</button>
+		<div>平均高程:<span id="avg_ans"></span>公尺</div>
+	</div>
+	<table id="dig_fill">
+		<tr id='df1'></tr>
+		<tr id='df2'></tr>
+		<tr id='df3'></tr>
+		<tr id='df4'></tr>
+		<tr id='df5'></tr>
+		<tr id='df6'></tr>
+		<tr id='df7'></tr>
+		<tr id='df8'></tr>
+		<tr id='df9'></tr>
+		<tr id='df10'></tr>
+		<tr><td colspan="10">單位: 百萬立方公尺</td></tr>
+	</table>
+
+	<script>
+
+		var colors = [[90,190,178,0],[162,221,199,100],[111,190,62,200],[168,219,80,300],[218,234,83,400],[248,248,102,500],[245,235,86,600],[238,209,69,700],[200,141,21,800],[215,135,36,900],[221,109,37,1000],[225,103,40,1100],[219,87,39,1200],[206,64,26,1300],[231,87,50,1400],[235,114,69,1500],[254,163,110,1600],[249,183,133,1700],[250,223,168,1800]];
+		var avg_height = new Array(70);
+		for(i=0;i<70;i++)
+			avg_height[i] = 0;
+		for(i=0;i<19;i++)
+		{
+			var spans = document.createElement("DIV");
+			spans.style.backgroundColor = "rgb("+colors[i][0]+","+colors[i][1]+","+colors[i][2]+")";
+			spans.innerHTML = colors[i][3]+"m<br>";
+			spans.style.width = "50px";
+			document.getElementById("color_grid").appendChild(spans);
+		}
+
+		for(i = 1; i <= 10; i++)
+		{
+			for(j = 1; j <= 7; j++)
+			{	
+				var imgs = document.createElement("IMG");
+				imgs.id = "img"+i+"-"+j;
+				imgs.src = "http://www.chass.ncku.edu.tw/test/10cm/row-"+i+"-col-"+j+".jpg";
+				document.getElementById("ori_img").appendChild(imgs);
+			}
+			var brs = document.createElement("BR");
+			document.getElementById("ori_img").appendChild(brs);
+		}
+
+		for(i = 1; i <= 10; i++)
+		{
+			for(j = 1; j <= 7; j++)
+			{	
+				var tds = document.createElement("TD");
+				tds.id = "map"+i+"-"+j;
+				tds.contentEditable = "true";
+				tds.style.border = "1px solid black"
+				//tds.innerHTML = "0";
+				document.getElementById("tr"+i).appendChild(tds);
+			}
+		}
+
+		/*for(i = 1; i <= 20; i++)
+		{
+			for(j = 1; j <= 15; j++)
+			{
+				document.getElementById("img"+i+"-"+j).src = "http://www.chass.ncku.edu.tw/test/5cm/row-"+i+"-col-"+j+".jpg";
+			}
+		}*/
+
+		function gen(){
+			var p=0;
+			for(i = 1; i <= 10; i++)
+			{
+				for(j = 1; j <= 7; j++)
+				{	
+					for(m=0;m<19;m++)
+					{
+						avg_height[p] = Number(document.getElementById("map"+i+"-"+j).innerHTML);
+						if(colors[m][3] == document.getElementById("map"+i+"-"+j).innerHTML)
+						{
+							document.getElementById("map"+i+"-"+j).style.backgroundColor = "rgb("+colors[m][0]+","+colors[m][1]+","+colors[m][2]+")";	
+						}
+						else
+						{
+							var lower = Number(document.getElementById("map"+i+"-"+j).innerHTML)-50;
+							var higher = Number(document.getElementById("map"+i+"-"+j).innerHTML)+50;
+							if(colors[m][3] == lower && higher<=1800)
+							{
+								document.getElementById("map"+i+"-"+j).style.backgroundColor = "rgb("+((colors[m][0]+colors[m+1][0])/2)+","+((colors[m][1]+colors[m+1][1])/2)+","+((colors[m][2]+colors[m+1][2])/2)+")";
+							}
+						}
+					}
+					//if(document.getElementById("map"+i+"-"+j).innerHTML)
+					
+					p++;
+					
+				}
+			}
+			var tmp = 0;
+			for(i=0;i<70;i++)
+			{
+				tmp = avg_height[i]+tmp;
+				console.log(tmp);
+			}
+			document.getElementById("avg_ans").innerHTML = Math.floor(tmp*100/70)/100;
+
+			for(i=1;i<=10;i++)
+			{
+				for(j=1;j<=7;j++)
+				{
+					var tds = document.createElement("TD");
+					//tds.id = "map"+i+"-"+j;
+					//tds.contentEditable = "true";
+					tds.style.border = "1px solid black"
+					//tds.innerHTML = "0";
+				
+					if(Number(document.getElementById("map"+i+"-"+j).innerHTML) > document.getElementById("avg_ans").innerHTML)//dig
+					{
+						tds.innerHTML = "挖"+Math.floor((Number(document.getElementById("map"+i+"-"+j).innerHTML) - document.getElementById("avg_ans").innerHTML));
+					}
+					else if(Number(document.getElementById("map"+i+"-"+j).innerHTML) < document.getElementById("avg_ans").innerHTML)//fill
+					{
+						tds.innerHTML =  "填"+Math.floor((document.getElementById("avg_ans").innerHTML - Number(document.getElementById("map"+i+"-"+j).innerHTML)));
+					}
+
+					document.getElementById("df"+i).appendChild(tds);
+				}
+			}
+
+
+		}
+
+
+
+
+</script>
+</body>
+</html>

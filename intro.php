@@ -5,9 +5,9 @@
 	<style type="text/css">
 		@import url("chass.css");
 		#outer_frame{
-			//background-color: #b5b5b5;
+			background-color: #c4c4c4;
 			//background: linear-gradient(160deg, #c1a86c 30%, rgba(0,0,0,0) 30%), linear-gradient(155deg, #876b29 35%, rgba(0,0,0,0) 35%), linear-gradient(150deg, #634c15 40%, rgba(0,0,0,0) 40%), linear-gradient(15deg, #7092b5 20%, rgba(0,0,0,0) 20%), linear-gradient(19deg, #4b6887 25%, rgba(0,0,0,0) 25%), linear-gradient(23deg, #304963 30%, rgba(0,0,0,0) 30%), linear-gradient(-80deg, #c4906a 20%, rgba(0,0,0,0) 20%), linear-gradient(-96deg, #7d3a11 25%, rgba(0,0,0,0) 25%);
-			background: linear-gradient(100deg, #7092b5 70%, #4b6887 70%);
+			//background: linear-gradient(100deg, #7092b5 70%, #4b6887 70%);
 			width: 35rem;
 			height: 40rem;
 			float: right;
@@ -34,22 +34,6 @@
 			text-align: left;
 			color: black;
 			font-weight: bold;
-		}
-		.sidebar{
-			display: block;
-			font-size: 1.2rem;
-			text-decoration: none;
-			line-height: 2.5rem;
-			color: black;
-			font-weight: bold;
-			border-left: 1rem solid #a88718;
-			margin: 1rem;
-			padding-left: 1rem;
-			padding-right: 0.5rem;
-			background: linear-gradient(100deg, #ededed 80%, #c4c4c4 80%);
-		}
-		.sidebar:hover{
-			background: linear-gradient(100deg, #c4c4c4 80%, #c4c4c4 80%);
 		}
 		#intro_sidebar{
 			width: 20 %;
@@ -109,6 +93,12 @@
 				?>
 			</div>
 			<div id="outer_frame">
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc2803;float: left;margin-right: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc6b03;float: left;margin-right: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc9803;float: left;margin-right: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc2803;float: right;margin-left: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc6b03;float: right;margin-left: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc9803;float: right;margin-left: 1rem"></div>
 				<div id="content_title">中心簡介</div>
 				<div id="white_frame">
 					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp本校為提升人文社會科學領域之研究水準及學術能量，促進人文與科技均衡發展，特依本校組織規程第八條，設置「人文社會科學中心」。

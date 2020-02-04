@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+
 	@media only screen and (orientation: portrait){
 		#main_content{
 			width: 100% !important;
@@ -79,4 +80,21 @@
 		background-size: 100%;
 		width: 50rem;
 		margin: auto;
+	}
+	.sidebar{
+			width: 8rem;
+			display: block;
+			font-size: 1.2rem;
+			text-decoration: none;
+			line-height: 2.5rem;
+			color: black;
+			font-weight: bold;
+			border-left: 1rem solid #a88718;
+			margin: 1rem;
+			padding-left: 1rem;
+			padding-right: 0.5rem;
+			background: linear-gradient(100deg, #ededed 80%, #c4c4c4 80%);
+	}
+	.sidebar:hover{
+			background: linear-gradient(100deg, #c4c4c4 80%, #c4c4c4 80%);
 	}

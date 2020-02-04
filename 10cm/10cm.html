@@ -1,0 +1,159 @@
+<html>
+<head>
+	<style type="text/css">
+		td{
+			width: 50px;
+			height: 50px;
+		}
+		img{
+			width: 50px;
+			height: 50px;
+			padding: 1px;
+		}
+		#ori_img{
+			float: left;
+		}
+		#result{
+			float: left;
+		}
+	</style>
+</head>
+<body onload="run()">
+
+	<div id="ori_img"></div>
+
+	<table id="result">
+		<tr id='tr1'></tr>
+		<tr id='tr2'></tr>
+		<tr id='tr3'></tr>
+		<tr id='tr4'></tr>
+		<tr id='tr5'></tr>
+		<tr id='tr6'></tr>
+		<tr id='tr7'></tr>
+		<tr id='tr8'></tr>
+		<tr id='tr9'></tr>
+		<tr id='tr10'></tr>
+	</table>
+
+	<div id="color_grid"></div>
+
+	<script>
+
+		var colors = [[90,190,178,0],[162,221,199,100],[111,190,62,200],[239,246,104,300],[248,248,102,400],[245,235,86,500],[238,209,69,600],[200,141,21,700],[215,135,36,800],[221,109,37,900],[225,103,40,1000],[219,87,39,1100],[206,64,26,1200],[231,87,50,1300],[235,114,69,1400],[254,163,110,1500],[249,183,133,1600],[250,223,168,1700]];
+
+		for(i=0;i<18;i++)
+		{
+			var spans = document.createElement("SPAN");
+			spans.style.backgroundColor = "rgb("+colors[i][0]+","+colors[i][1]+","+colors[i][2]+")";
+			spans.innerHTML = colors[i][3]+"<br>";
+			document.getElementById("color_grid").appendChild(spans);
+		}
+
+		for(i = 1; i <= 10; i++)
+		{
+			for(j = 1; j <= 7; j++)
+			{	
+				var imgs = document.createElement("IMG");
+				imgs.id = "img"+i+"-"+j;
+				imgs.src = "http://www.chass.ncku.edu.tw/test/10cm/row-"+i+"-col-"+j+".jpg";
+				document.getElementById("ori_img").appendChild(imgs);
+			}
+			var brs = document.createElement("BR");
+			document.getElementById("ori_img").appendChild(brs);
+		}
+
+		for(i = 1; i <= 10; i++)
+		{
+			for(j = 1; j <= 7; j++)
+			{	
+				var tds = document.createElement("TD");
+				tds.id = "map"+i+"-"+j;
+				document.getElementById("tr"+i).appendChild(tds);
+			}
+		}
+
+		/*for(i = 1; i <= 20; i++)
+		{
+			for(j = 1; j <= 15; j++)
+			{
+				document.getElementById("img"+i+"-"+j).src = "http://www.chass.ncku.edu.tw/test/5cm/row-"+i+"-col-"+j+".jpg";
+			}
+		}*/
+		function run(){
+			var i, j, m;
+			for(i = 1; i <= 10; i++)
+			{
+				for(j = 1; j <= 7; j++)
+				{
+					var rgb = getAverageRGB(document.getElementById("img"+i+"-"+j));
+					var color_tmp;
+					var min=1000;
+					var tmp_arr = [0,0,0,0];
+					for(m=0;m<18;m++)
+					{
+						//color_tmp = 0;
+						color_tmp = Math.abs(colors[m][0]-rgb.r)+Math.abs(colors[m][1]-rgb.g)+Math.abs(colors[m][2]-rgb.b);
+						console.log(colors[0][0]);
+						if(color_tmp < min)
+						{
+							min = color_tmp;
+							console.log(min);
+							tmp_arr = colors[m];
+						}
+					}
+					document.getElementById("map"+i+"-"+j).style.backgroundColor = 'rgb('+tmp_arr[0]+','+tmp_arr[1]+','+tmp_arr[2]+')';
+					document.getElementById("map"+i+"-"+j).innerHTML = tmp_arr[3];
+				}
+			}
+		}
+
+		function getAverageRGB(imgEl) {
+
+    var blockSize = 5, // only visit every 5 pixels
+        defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
+        canvas = document.createElement('canvas'),
+        context = canvas.getContext && canvas.getContext('2d'),
+        data, width, height,
+        i = -4,
+        length,
+        rgb = {r:0,g:0,b:0},
+        count = 0;
+        
+        if (!context) {
+        	return defaultRGB;
+        }
+
+        height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+        width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+
+        context.drawImage(imgEl, 0, 0);
+
+        try {
+        	data = context.getImageData(0, 0, width, height);
+        } catch(e) {
+        	/* security error, img on diff domain */alert('x');
+        	return defaultRGB;
+        }
+
+        length = data.data.length;
+
+        while ( (i += blockSize * 4) < length ) {
+        	++count;
+        	rgb.r += data.data[i];
+        	rgb.g += data.data[i+1];
+        	rgb.b += data.data[i+2];
+        }
+
+    // ~~ used to floor values
+    rgb.r = ~~(rgb.r/count);
+    rgb.g = ~~(rgb.g/count);
+    rgb.b = ~~(rgb.b/count);
+    
+    return rgb;
+    
+}
+
+
+</script>
+</body>
+</html>

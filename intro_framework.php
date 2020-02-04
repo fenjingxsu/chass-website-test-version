@@ -5,9 +5,9 @@
 	<style type="text/css">
 		@import url("chass.css");
 		#outer_frame{
-			//background-color: #b5b5b5;
+			background-color: #c4c4c4;
 			//background: linear-gradient(160deg, #c1a86c 30%, rgba(0,0,0,0) 30%), linear-gradient(155deg, #876b29 35%, rgba(0,0,0,0) 35%), linear-gradient(150deg, #634c15 40%, rgba(0,0,0,0) 40%), linear-gradient(15deg, #7092b5 20%, rgba(0,0,0,0) 20%), linear-gradient(19deg, #4b6887 25%, rgba(0,0,0,0) 25%), linear-gradient(23deg, #304963 30%, rgba(0,0,0,0) 30%), linear-gradient(-80deg, #c4906a 20%, rgba(0,0,0,0) 20%), linear-gradient(-96deg, #7d3a11 25%, rgba(0,0,0,0) 25%);
-			background: linear-gradient(100deg, #7092b5 70%, #4b6887 70%);
+			//background: linear-gradient(100deg, #7092b5 70%, #4b6887 70%);
 			width: 35rem;
 			height: 50rem;
 			float: right;
@@ -35,22 +35,7 @@
 			color: black;
 			font-weight: bold;
 		}
-		.sidebar{
-			display: block;
-			font-size: 1.2rem;
-			text-decoration: none;
-			line-height: 2.5rem;
-			color: black;
-			font-weight: bold;
-			border-left: 1rem solid #a88718;
-			margin: 1rem;
-			padding-left: 1rem;
-			padding-right: 0.5rem;
-			background: linear-gradient(100deg, #ededed 80%, #c4c4c4 80%);
-		}
-		.sidebar:hover{
-			background: linear-gradient(100deg, #c4c4c4 80%, #c4c4c4 80%);
-		}
+
 		#intro_sidebar{
 			width: 20 %;
 			float: left;
@@ -109,7 +94,13 @@
 				?>
 			</div>
 			<div id="outer_frame">
-				<div id="content_title">中心簡介</div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc2803;float: left;margin-right: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc6b03;float: left;margin-right: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc9803;float: left;margin-right: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc2803;float: right;margin-left: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc6b03;float: right;margin-left: 1rem"></div>
+				<div style="width: 2rem;height: 3.5rem;background-color: #fc9803;float: right;margin-left: 1rem"></div>
+				<div id="content_title">組織架構</div>
 				<div id="white_frame">
 					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp關於本中心組織人力架構: 依本校「人文社會科學中心設置辦法」(附件一)置中心主任一人，綜理各項業務，由林從一教授擔任，另為有效執行及推動任務，下設行政企劃組，研究教育組和社會實踐組，各組置組長一人，以督導各項業務之執行，由中心主任聘請助理教授以上教學人員或同級之研究人員兼任之。<br/><br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp目前教育所董旭英教授擔任行政企劃組組長，建築系陳世明副教授擔任社會實踐組組長，歷史系謝仕淵富教授擔任研究教育組組長。<br/><br/>
 					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp在行政人力方面，目前配置了1位碩士級專任助理，4位工讀生，以協助本中心行政業務。此外，本中心有1位助理研究員，也延攬了5位博士後研究員。<br><br>

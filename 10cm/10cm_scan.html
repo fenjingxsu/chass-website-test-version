@@ -1,0 +1,92 @@
+<html>
+<head>
+	<style type="text/css">
+		td{
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+</head>
+<body onload="run()">
+
+	<table>
+		<tr><td id = "map11"></td><td id = "map12"></td><td id = "map13"></td><td id = "map14"></td><td id = "map15"></td><td id = "map16"></td><td id = "map17"></td></tr>
+		<tr><td id = "map21"></td><td id = "map22"></td><td id = "map23"></td><td id = "map24"></td><td id = "map25"></td><td id = "map26"></td><td id = "map27"></td></tr>
+		<tr><td id = "map31"></td><td id = "map32"></td><td id = "map33"></td><td id = "map34"></td><td id = "map35"></td><td id = "map36"></td><td id = "map37"></td></tr>
+		<tr><td id = "map41"></td><td id = "map42"></td><td id = "map43"></td><td id = "map44"></td><td id = "map45"></td><td id = "map46"></td><td id = "map47"></td></tr>
+		<tr><td id = "map51"></td><td id = "map52"></td><td id = "map53"></td><td id = "map54"></td><td id = "map55"></td><td id = "map56"></td><td id = "map57"></td></tr>
+		<tr><td id = "map61"></td><td id = "map62"></td><td id = "map63"></td><td id = "map64"></td><td id = "map65"></td><td id = "map66"></td><td id = "map67"></td></tr>
+		<tr><td id = "map71"></td><td id = "map72"></td><td id = "map73"></td><td id = "map74"></td><td id = "map75"></td><td id = "map76"></td><td id = "map77"></td></tr>
+		<tr><td id = "map81"></td><td id = "map82"></td><td id = "map83"></td><td id = "map84"></td><td id = "map85"></td><td id = "map86"></td><td id = "map87"></td></tr>
+		<tr><td id = "map91"></td><td id = "map92"></td><td id = "map93"></td><td id = "map94"></td><td id = "map95"></td><td id = "map96"></td><td id = "map97"></td></tr>
+		<tr><td id = "map101"></td><td id = "map102"></td><td id = "map103"></td><td id = "map104"></td><td id = "map105"></td><td id = "map106"></td><td id = "map107"></td></tr>
+
+	</table>
+
+	<img id = 'tmp'>
+
+	<script>
+
+		function run(){
+			var i, j;
+			for(i = 1; i <= 10; i++)
+			{
+				for(j = 1; j <= 7; j++)
+				{
+					document.getElementById('tmp').src = "http://www.chass.ncku.edu.tw/test/10cm/row-"+i+"-col-"+j+".jpg";
+					var rgb = getAverageRGB(document.getElementById('tmp'));
+					document.getElementById("map"+i+""+j).style.backgroundColor = 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')';
+				}
+			}
+		}
+
+		function getAverageRGB(imgEl) {
+    
+    var blockSize = 5, // only visit every 5 pixels
+        defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
+        canvas = document.createElement('canvas'),
+        context = canvas.getContext && canvas.getContext('2d'),
+        data, width, height,
+        i = -4,
+        length,
+        rgb = {r:0,g:0,b:0},
+        count = 0;
+        
+    if (!context) {
+        return defaultRGB;
+    }
+    
+    height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+    width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+    
+    context.drawImage(imgEl, 0, 0);
+    
+    try {
+        data = context.getImageData(0, 0, width, height);
+    } catch(e) {
+        /* security error, img on diff domain */alert('x');
+        return defaultRGB;
+    }
+    
+    length = data.data.length;
+    
+    while ( (i += blockSize * 4) < length ) {
+        ++count;
+        rgb.r += data.data[i];
+        rgb.g += data.data[i+1];
+        rgb.b += data.data[i+2];
+    }
+    
+    // ~~ used to floor values
+    rgb.r = ~~(rgb.r/count);
+    rgb.g = ~~(rgb.g/count);
+    rgb.b = ~~(rgb.b/count);
+    
+    return rgb;
+    
+}
+
+
+	</script>
+</body>
+</html>
